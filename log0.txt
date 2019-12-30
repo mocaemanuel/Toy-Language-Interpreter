@@ -1,0 +1,151 @@
+ID: 1
+*****ExecutionStack*****
+int v ;v = 2;Print(v)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int v 
+v = 2;Print(v)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int v 
+v = 2;Print(v)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+v = 2;Print(v)
+
+*****SymbolTable*****
+v --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+v = 2;Print(v)
+
+*****SymbolTable*****
+v --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+v = 2
+Print(v)
+
+*****SymbolTable*****
+v --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+v = 2
+Print(v)
+
+*****SymbolTable*****
+v --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(v)
+
+*****SymbolTable*****
+v --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(v)
+
+*****SymbolTable*****
+v --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+
+*****SymbolTable*****
+v --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------

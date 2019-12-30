@@ -1,0 +1,398 @@
+ID: 1
+*****ExecutionStack*****
+int a ;Open: a.txt;Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int a ;Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int a ;Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int a 
+Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int a 
+Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Open: a.txt
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Read: a from: a.txt;Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Read: a from: a.txt
+Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Read: a from: a.txt
+Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(a);(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(a)
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(a)
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0));Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0))
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+(IF a THEN Read: a from: a.txt;Print(a) ELSE Print(0))
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(0)
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(0)
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+0
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Close: a.txt
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+0
+
+*****FileTable*****
+a.txt --> java.io.BufferedReader@65df3646
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+
+*****SymbolTable*****
+a --> 2
+
+*****OutputList*****
+2
+0
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------

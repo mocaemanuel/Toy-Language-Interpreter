@@ -1,0 +1,29 @@
+ID: 1
+*****ExecutionStack*****
+int v ;v = 2;Print(v)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int v 
+v = 2;Print(v)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
