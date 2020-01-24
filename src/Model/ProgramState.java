@@ -10,15 +10,31 @@ public class ProgramState {
     private MyIStack<IStatement> exeStack;
     private MyIDictionary<String, IValue> symTable;
     private MyIList<IValue> output;
+    private int lockAddr = 0;
+    private ILockTable lockTable;
     private MyIDictionary<StringValue, BufferedReader> fileTable;
     private IStatement originalProgram;
     private IHeap<Integer, IValue> heapTable;
     private int id;
-    private static int lastAssigned=0;
+    private int lastAssigned=0;
 
-    public static int getNewId(){
+    public  int getNewId(){
         lastAssigned++;
         return lastAssigned;
+    }
+
+    public ProgramState(MyIStack<IStatement> stack, MyIDictionary<String, IValue> symTable,
+                        MyIList<IValue> out, MyIDictionary<StringValue, BufferedReader> fileTable,
+                        IHeap<Integer, IValue> heapTable, IStatement program, int id, ILockTable lockTable){
+        exeStack = stack;
+        this.symTable  = symTable;
+        this.output = out;
+        this.fileTable = fileTable;
+        originalProgram = program.deepCopy();
+        this.heapTable = heapTable;
+        exeStack.push(program);
+        this.id =id;
+        this.lockTable = lockTable;
     }
 
     public ProgramState(MyIStack<IStatement> stack, MyIDictionary<String, IValue> symTable,
@@ -32,6 +48,7 @@ public class ProgramState {
         this.heapTable = heapTable;
         exeStack.push(program);
         this.id =id;
+        this.lockTable = new LockTable();
     }
 
     public ProgramState(MyIStack<IStatement> stack, MyIDictionary<String, IValue> symTable,
@@ -45,6 +62,7 @@ public class ProgramState {
         this.heapTable = heapTable;
         exeStack.push(program);
         id=getNewId();
+        this.lockTable = new LockTable();
     }
 
     public ProgramState(IStatement initialProgram){
@@ -56,6 +74,7 @@ public class ProgramState {
         this.originalProgram = initialProgram;
         id = getNewId();
         exeStack.push(originalProgram);
+        this.lockTable = new LockTable();
     }
 
     @Override
@@ -75,6 +94,9 @@ public class ProgramState {
 
                 "*****HeapTable*****\n" +
                 heapTable.toString() + "\n" +
+
+                "*****LockTable*****\n" +
+                lockTable.toString() + "\n" +
                 "------------------------------------------------------\n";
     }
 
@@ -118,6 +140,16 @@ public class ProgramState {
     public int getId(){
         return id;
     }
+
+    public ILockTable getLockTable(){
+        return this.lockTable;
+    }
+
+    public void  setLockTable(ILockTable table){
+        this.lockTable = table;
+    }
+
+    public Integer getLockAddress() { return lockAddr++; }
 
 
 }

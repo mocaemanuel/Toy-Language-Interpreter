@@ -74,6 +74,7 @@ public class Controller {
         });
 
         localRepository.setProgramStateList(programs);
+        executor.shutdownNow();
     }
 
     public void allStep() throws MyException{
@@ -147,28 +148,8 @@ public class Controller {
         });
 
         localRepository.setProgramStateList(programs);
-
-        /*executor = Executors.newFixedThreadPool(8);
-        removeCompletedProgram(localRepository.getProgramStateList());
-        List<ProgramState> programStates = localRepository.getProgramStateList();
-        if(programStates.size() > 0)
-        {
-            try {
-                oneStepForAllPrograms(localRepository.getProgramStateList());
-            } catch (MyException e) {
-                System.out.println();
-            }
-            programStates.forEach(e -> {
-                try {
-                    localRepository.logProgramStateExecution(e);
-                } catch (MyException e1) {
-                    System.out.println();
-                }
-            });
-            removeCompletedProgram(localRepository.getProgramStateList());
-            executor.shutdownNow();
-        }
-        */
+        executor.shutdownNow();
+        
 
     }
 

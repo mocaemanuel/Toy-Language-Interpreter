@@ -2,10 +2,7 @@ package sample;
 
 
 import Controller.Controller;
-import Model.Collection.IHeap;
-import Model.Collection.MyIDictionary;
-import Model.Collection.MyIList;
-import Model.Collection.MyIStack;
+import Model.Collection.*;
 import Model.ProgramState;
 import Model.Statement.IStatement;
 import Model.Values.IValue;
@@ -17,6 +14,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.Pair;
+
 import java.io.BufferedReader;
 import java.net.URL;
 import java.util.*;
@@ -25,6 +24,7 @@ import java.util.stream.Collectors;
 public class runProgramFormController implements Initializable {
 
     private Controller controller;
+    private int currentId=0;
 
     @FXML
     private TableView<Map.Entry<Integer,IValue>> heapTableView;
@@ -68,6 +68,15 @@ public class runProgramFormController implements Initializable {
     @FXML
     private Button executeOneStepButton;
 
+    @FXML
+    private TableView<Map.Entry<String, IValue>> lockTableView;
+
+    @FXML
+    private TableColumn<Map.Entry<String, IValue>, String> lockTableVariableColumn;
+
+    @FXML
+    private TableColumn<Map.Entry<String, IValue>, IValue> lockTableValueColumn;
+
     public void setController(Controller controller)
     {
         this.controller=controller;
@@ -96,7 +105,7 @@ public class runProgramFormController implements Initializable {
             return;
         }
 
-        boolean programStateLeft = controller.getRepository().getProgramStateList().get(0).getExeStack().isEmpty();
+        boolean programStateLeft = controller.getRepository().getProgramStateWithId(currentId).getExeStack().isEmpty();
         if(programStateLeft){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Nothing left to execute", ButtonType.OK);
             alert.showAndWait();
@@ -105,7 +114,7 @@ public class runProgramFormController implements Initializable {
 
         controller.executeOneStep();
 
-        changeProgramState(controller.getRepository().getProgramStateList().get(0));
+        changeProgramState(controller.getRepository().getProgramStateWithId(currentId));
         populateProgramStateIdentifiers();
 
     }
@@ -117,6 +126,7 @@ public class runProgramFormController implements Initializable {
         populateExecutionStack(currentProgramState);
         populateSymbolTable(currentProgramState);
         populateOutput(currentProgramState);
+        populateLockTable(currentProgramState);
         populateFileTable(currentProgramState);
         populateHeapTable(currentProgramState);
     }
@@ -175,6 +185,23 @@ public class runProgramFormController implements Initializable {
 
     }
 
+    public void populateLockTable(ProgramState currentProgramState)
+    {
+        ILockTable procTbl=currentProgramState.getLockTable();
+
+        List<Map.Entry<String,IValue>> lockTableList=new ArrayList<>();
+
+        for(Map.Entry<Integer, Integer> entry : procTbl.getAll())
+        {
+
+            lockTableList.add(Map.entry(entry.getKey().toString(),new StringValue(entry.getValue().toString())));
+        }
+        lockTableView.setItems(FXCollections.observableList(lockTableList));
+        lockTableView.refresh();
+
+
+    }
+
     public void populateExecutionStack(ProgramState currentProgramState)
     {
         MyIStack<IStatement> executionStack=currentProgramState.getExeStack();
@@ -193,7 +220,7 @@ public class runProgramFormController implements Initializable {
         if(programStateListView.getSelectionModel().getSelectedIndex()==-1)
             return null;
 
-        int currentId=programStateListView.getSelectionModel().getSelectedItem();
+        currentId=programStateListView.getSelectionModel().getSelectedItem();
         return controller.getRepository().getProgramStateWithId(currentId);
     }
 
@@ -206,6 +233,8 @@ public class runProgramFormController implements Initializable {
         fileNameColumn.setCellValueFactory(p -> new SimpleObjectProperty(p.getValue().getValue().toString() + ""));
         symbolTableVariableColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey() + ""));
         symbolTableValueColumn.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
+        lockTableVariableColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey() + ""));
+        lockTableValueColumn.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
 
         programStateListView.setOnMouseClicked(mouseEvent -> { changeProgramState(getCurrentProgramState()); });
 

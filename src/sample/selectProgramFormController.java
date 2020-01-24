@@ -9,6 +9,9 @@ import Model.Statement.File.OpenRFileStatement;
 import Model.Statement.File.ReadFileStatement;
 import Model.Statement.Heap.NewStatement;
 import Model.Statement.Heap.WriteHeapStatement;
+import Model.Statement.Threads.LockStatement;
+import Model.Statement.Threads.NewLockStatement;
+import Model.Statement.Threads.UnlockStatement;
 import Model.Types.BoolType;
 import Model.Types.IntType;
 import Model.Types.ReferenceType;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.locks.Lock;
 import java.util.stream.Collectors;
 
 public class  selectProgramFormController  implements Initializable {
@@ -46,6 +50,7 @@ public class  selectProgramFormController  implements Initializable {
 
     private void buildProgramStatements()
     {
+
         IStatement ex0 = new CompStatement(new CompStatement(new CompStatement(new CompStatement(new CompStatement(new CompStatement
                 (new VarDeclarationStatement("v", new IntType()), new VarDeclarationStatement("a", new ReferenceType(new IntType()))),
                 new AssignStatement("v", new ValueExpression(new IntValue(10)))), new NewStatement(new StringValue("a"), new ValueExpression(new IntValue(30)))),
@@ -139,8 +144,49 @@ public class  selectProgramFormController  implements Initializable {
                         new PrintStatement(new VarExpression("v"))), new PrintStatement(new HeapReadingExpression(new VarExpression("a")))))),
                 new PrintStatement(new VarExpression("v"))), new PrintStatement(new HeapReadingExpression(new VarExpression("a"))));
 
+        //12
 
-        programStatements=new ArrayList<>(Arrays.asList(ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex0));
+        IStatement ex12 = new CompStatement(new CompStatement(new CompStatement(new VarDeclarationStatement("a", new ReferenceType(new IntType())),
+                new NewStatement(new StringValue("a"), new ValueExpression(new IntValue(20)))),
+                new ForStatement( new ValueExpression(new IntValue(-1)),
+                        new ValueExpression(new IntValue(2)),
+                        new ArithmeticExpression(new VarExpression("v"), new ValueExpression(new IntValue(1)), "+"),
+                        new ForkStatement(new CompStatement(new PrintStatement(new VarExpression("v")),
+                                new AssignStatement("v", new HeapReadingExpression(new ArithmeticExpression(
+                                        new VarExpression("v"), new VarExpression("a"), "*"))))))),
+                            new PrintStatement(new HeapReadingExpression(new VarExpression("a"))));
+
+        /*
+        IStatement fork2 = new ForkStatement(new CompStatement(new ForkStatement(new CompStatement(new CompStatement(new LockStatement("q"), new WriteHeapStatement(new StringValue("v1"),
+                new ArithmeticExpression( new HeapReadingExpression(new VarExpression("v2")), new ValueExpression(new IntValue(5)), "+"))),
+                new UnlockStatement("q"))), new CompStatement(new CompStatement(new LockStatement("q"),
+                new WriteHeapStatement(new StringValue("v2"), new HeapReadingExpression(new ArithmeticExpression( new VarExpression("v2"), new ValueExpression(new IntValue(10)), "*")))),
+                new UnlockStatement("q"))));
+
+        IStatement lock1 = new CompStatement(new CompStatement(new LockStatement("x"), new PrintStatement(new HeapReadingExpression(new VarExpression("v1")))), new UnlockStatement("x"));
+        IStatement lock2 = new CompStatement(new CompStatement(new LockStatement("q"), new PrintStatement(new HeapReadingExpression(new VarExpression("v2")))), new UnlockStatement("q"));
+
+         */
+
+        IStatement ex14 = new CompStatement(new CompStatement(new CompStatement(new CompStatement(new CompStatement(new CompStatement(new CompStatement(
+                new CompStatement(new CompStatement(new CompStatement(new CompStatement(new VarDeclarationStatement("v1", new ReferenceType(new IntType())), new VarDeclarationStatement("v2", new ReferenceType(new IntType()))),
+                new VarDeclarationStatement("x", new IntType())), new VarDeclarationStatement("q", new IntType())), new NewStatement(new StringValue("v1"), new ValueExpression(new IntValue(190)))),
+                new NewStatement(new StringValue("v2"), new ValueExpression(new IntValue(305)))), new NewLockStatement("x")),
+                new ForkStatement(new CompStatement(new ForkStatement(new CompStatement(new CompStatement(new LockStatement("x"), new WriteHeapStatement(new StringValue("v1"),
+                        new ArithmeticExpression( new HeapReadingExpression(new VarExpression("v1")), new VarExpression("1"), "-"))),
+                        new UnlockStatement("x"))), new CompStatement(new CompStatement(new LockStatement("x"),
+                        new WriteHeapStatement(new StringValue("v2"), new HeapReadingExpression(new ArithmeticExpression( new VarExpression("v1"), new ValueExpression(new IntValue(10)), "*")))),
+                        new UnlockStatement("x"))))), new NewLockStatement("q")), new ForkStatement(new CompStatement(new ForkStatement(new CompStatement(new CompStatement(new LockStatement("q"), new WriteHeapStatement(new StringValue("v1"),
+                new ArithmeticExpression( new HeapReadingExpression(new VarExpression("v2")), new ValueExpression(new IntValue(5)), "+"))),
+                new UnlockStatement("q"))), new CompStatement(new CompStatement(new LockStatement("q"),
+                new WriteHeapStatement(new StringValue("v2"), new HeapReadingExpression(new ArithmeticExpression( new VarExpression("v2"), new ValueExpression(new IntValue(10)), "*")))),
+                new UnlockStatement("q"))))),
+                new CompStatement(new CompStatement(new LockStatement("x"), new PrintStatement(new HeapReadingExpression(new VarExpression("v1")))),
+                        new UnlockStatement("x"))), new CompStatement(new CompStatement(new LockStatement("q"), new PrintStatement(
+                                new HeapReadingExpression(new VarExpression("v2")))), new UnlockStatement("q")));
+
+
+        programStatements=new ArrayList<>(Arrays.asList(ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11, ex12,ex14));
     }
 
 

@@ -2,16 +2,16 @@ package Model.Collection;
 
 import java.util.*;
 
-public class MyDictionary<T1,T2> implements MyIDictionary<T1,T2> {
-    private HashMap<T1, T2> dictionary;
+public class LockTable implements ILockTable {
+    private HashMap<Integer, Integer> dictionary;
 
-    public MyDictionary(){ dictionary = new HashMap<>(); }
+    public LockTable(){ dictionary = new HashMap<>(); }
 
-    public MyDictionary(HashMap<T1, T2> dictionary){ this.dictionary = dictionary; }
+    public LockTable(HashMap<Integer, Integer> dictionary){ this.dictionary = dictionary; }
 
     @Override
-    public boolean isDefined(T1 key){
-        for (T1 ky : this.dictionary.keySet()) {
+    public boolean isDefined(Integer key){
+        for (Integer ky : this.dictionary.keySet()) {
             if (ky.toString().equals(key.toString()))
                 return true;
         }
@@ -19,8 +19,8 @@ public class MyDictionary<T1,T2> implements MyIDictionary<T1,T2> {
     }
 
     @Override
-    public T2 getValue(T1 key) {
-        for (T1 ky : this.dictionary.keySet()) {
+    public Integer getValue(Integer key) {
+        for (Integer ky : this.dictionary.keySet()) {
             if (ky.toString().equals(key.toString()))
                 return dictionary.get(ky);
         }
@@ -28,17 +28,17 @@ public class MyDictionary<T1,T2> implements MyIDictionary<T1,T2> {
     }
 
     @Override
-    public void update(T1 newT1, T2 newT2){
+    synchronized public  void update(Integer newT1, Integer newT2){
         dictionary.put(newT1, newT2);
     }
 
     @Override
-    public T2 lookup(T1 key){ return dictionary.get(key);}
+    synchronized public Integer lookup(Integer key){ return dictionary.get(key);}
 
     @Override
     public String toString() {
         StringBuilder toReturn = new StringBuilder();
-        for (T1 key : this.dictionary.keySet()) {
+        for (Integer key : this.dictionary.keySet()) {
             toReturn.append(key.toString()).append(" --> ");
             toReturn.append(this.dictionary.get(key).toString()).append("\n");
         }
@@ -46,32 +46,32 @@ public class MyDictionary<T1,T2> implements MyIDictionary<T1,T2> {
     }
 
     @Override
-    public void remove(T1 key){
-        for (T1 ky : this.dictionary.keySet()) {
+    public void remove(Integer key){
+        for (Integer ky : this.dictionary.keySet()) {
             if (ky.toString().equals(key.toString()))
                 this.dictionary.remove(ky);
         }
     }
 
     @Override
-    public Set<Map.Entry<T1, T2>> entrySet() {
+    public Set<Map.Entry<Integer, Integer>> entrySet() {
         return dictionary.entrySet();
     }
 
     @Override
-    public List<T2> values()
+    public List<Integer> values()
 
     {
         return new LinkedList<>(this.dictionary.values());
     }
 
     @Override
-    public MyIDictionary<T1,T2> deepCopy(){
-        return new MyDictionary<T1,T2>(dictionary);
+    public LockTable deepCopy(){
+        return new LockTable(dictionary);
     }
 
     @Override
-    public  Iterable<Map.Entry<T1,T2>> getAll() {
+    public  Iterable<Map.Entry<Integer, Integer>> getAll() {
         return dictionary.entrySet();
     }
 }

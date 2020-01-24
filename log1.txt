@@ -1,6 +1,6 @@
 ID: 1
 *****ExecutionStack*****
-int v ;v = 2;Print(v)
+int a ;int b ;a = 2 + 3 * 5;b = a + 1;Print(b)
 
 *****SymbolTable*****
 
@@ -14,12 +14,269 @@ int v ;v = 2;Print(v)
 ------------------------------------------------------
 ID: 1
 *****ExecutionStack*****
-int v 
-v = 2;Print(v)
+int a 
+int b ;a = 2 + 3 * 5;b = a + 1;Print(b)
 
 *****SymbolTable*****
 
 *****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int a 
+int b ;a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int b ;a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int b ;a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int b 
+a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+int b 
+a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+a = 2 + 3 * 5;b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+a = 2 + 3 * 5
+b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+a = 2 + 3 * 5
+b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 1
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+b = a + 1;Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+b = a + 1
+Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+b = a + 1
+Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 1
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 18
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+Print(b)
+
+*****SymbolTable*****
+a --> 17
+b --> 18
+
+*****OutputList*****
+
+*****FileTable*****
+
+*****HeapTable*****
+0 --> null
+
+------------------------------------------------------
+ID: 1
+*****ExecutionStack*****
+
+*****SymbolTable*****
+a --> 17
+b --> 18
+
+*****OutputList*****
+18
 
 *****FileTable*****
 

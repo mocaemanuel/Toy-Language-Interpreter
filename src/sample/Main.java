@@ -18,7 +18,7 @@ public class Main extends Application {
         runProgramFormController mainWindowController = mainLoader.getController();
 
         primaryStage.setTitle("Main Window");
-        primaryStage.setScene(new Scene(mainWindow, 620, 600));
+        primaryStage.setScene(new Scene(mainWindow, 820, 600));
         primaryStage.show();
 
 
